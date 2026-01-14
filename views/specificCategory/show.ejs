@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="/uploads/show.css">
+</head>
+<body>
+    <h1><%= category.name %></h1>
+
+    <ul>
+        <% if (items && items.length > 0) { %>
+            <% items.forEach(element => { %>
+                <li>
+                    <a href="/items/<%= element.id %>">
+                        <strong><%= element.name %></strong>
+                        
+                        <img src="<%= element.image_url %>" alt="<%= element.name %>">
+                        
+                        <div class="price-text">₹<%= element.price %></div>
+                        <div>Stock: <%= element.quantity %></div>
+                        
+                        <% if(element.specs) { %>
+                           <small style="color: #94a3b8; display: block; margin-top: 10px;">
+                             Specs: <%= Object.keys(element.specs).slice(0, 2).join(', ') %>...
+                           </small>
+                        <% } %>
+                    </a>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <p>No items found in this category.</p>
+        <% } %>
+    </ul>
+
+    <div class="button-group">
+        <a href="/additem"><button class="btn-add">Add Items</button></a>
+        <a href="/"><button class="btn-back">Go back</button></a>
+        
+        <form action="/categories/<%= category.id %>" method="post" onsubmit="return confirm('Delete this entire category?')">
+            <input type="hidden" id="adminpwd" name="adminpwd">
+            <button class="btn-delete" onclick="confirmDelete()">Delete Category</button>
+        </form>
+    </div>
+
+    <script>
+        function confirmDelete(){
+            const password = prompt("Enter Passcode for deleting");
+            if(password){
+                document.getElementById('adminpwd').value = password;
+                }
+        }
+    </script>
+</body>
+</html>

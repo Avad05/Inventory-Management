@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="/uploads/itemForm.css">
+</head>
+<body>
+    <form action="/addItem" method="post" enctype="multipart/form-data">
+        <h2 style="margin-top: 0; text-align: center;">Add New Product</h2>
+
+        <li>
+            <label for="url">Product Image</label>
+            <input type="file" name="image_url" id="url" accept="image/*" required>
+        </li>
+
+        <li>
+            <label for="name">Item Name</label>
+            <input type="text" name="item" placeholder="e.g. RTX 4090" required id="name">
+        </li>
+
+        <li>
+            <label for="price">Price (₹)</label>
+            <input type="number" name="price" placeholder="0.00" id="price" required>
+        </li>
+
+        <li>
+            <label for="category_id">Category</label>
+            <select name="category" id="category_id" required>
+                <option value="" disabled selected>Select a Category</option>
+                <% getcategory.forEach(element => { %>
+                    <option value="<%= element.id %>"><%= element.name %></option>
+                <% }) %>
+            </select>
+        </li>
+
+        <li>
+            <label for="quantity">Stock Quantity</label>
+            <input type="number" name="quantity" placeholder="0" id="quantity" required>
+        </li>
+
+        <li>
+            <label for="specs">Specifications</label>
+            <input type="text" name="specs" placeholder="e.g. 24GB VRAM, DLSS 3.0" id="specs" required>
+        </li>
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>

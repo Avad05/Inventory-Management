@@ -1,0 +1,161 @@
+/* Container styling */
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: #0f172a; /* Your Background */
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    margin: 0;
+}
+
+/* The Product Card */
+li {
+    list-style: none;
+    background: #1e293b; /* Slightly lighter than BG to create depth */
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Image Styling */
+li img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    background: #0f172a;
+    transition: transform 0.3s ease;
+}
+
+li img:hover {
+    transform: scale(1.02);
+}
+
+/* Right Side Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+}
+
+.controls p {
+    font-size: 1.1rem;
+    color: #94a3b8; /* Muted slate for non-essential text */
+}
+
+.controls p strong {
+    color: #38bdf8; /* Highlighted quantity */
+}
+
+/* Quantity Controls */
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #0f172a;
+    padding: 12px 20px;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.qty-btn {
+    width: 36px;
+    height: 36px;
+    background: #334155;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.qty-btn:hover {
+    background: #475569;
+}
+
+.qty-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Price Section */
+.price-form {
+    border-top: 1px solid #334155;
+    padding-top: 24px;
+}
+
+.price-form label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+input[type="number"] {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-right: 10px;
+    outline: none;
+}
+
+input[type="number"]:focus {
+    border-color: #38bdf8;
+}
+
+/* Action Buttons */
+button[type="submit"]:not([style*="background-color"]) {
+    background-color: #38bdf8;
+    color: #0f172a; /* Dark text on light button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* Delete Section */
+.delete-form {
+    margin-top: 20px;
+}
+
+.delete-btn {
+    background-color: #ef4444; /* Standard Red */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Mobile Responsive */
+@media (max-width: 850px) {
+    li {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}

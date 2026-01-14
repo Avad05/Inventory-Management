@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="/uploads/products.css">
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 40px;">All Products</h1>
+
+    <ul class="product-grid">
+        <% prods.forEach(element => { %>
+            <li class="product-card">
+                <a href="/items/<%= element.id %>">
+                    <img src="<%= element.image_url %>" alt="<%= element.name %>">
+                    
+                    <div class="product-info">
+                        <h3 class="product-name"><%= element.name %></h3>
+                        <span class="product-price">₹<%= element.price %></span>
+                        
+                        <div class="product-meta">
+                            <span>Qty: <%= element.quantity %></span>
+                            <span>ID: <%= element.category_id %></span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="/" style="color: #94a3b8; text-decoration: none;">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

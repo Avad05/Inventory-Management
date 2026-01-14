@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="/uploads/categoryForm.css">
+</head>
+<body>
+    <h1>Add a Category</h1>
+    
+    <form method="POST" action="/addcategory">
+        <label for="name">Category Name</label>
+        <input type="text" id="name" placeholder="e.g. Peripherals" name="name" required autofocus>
+        
+        <button type="submit">Create Category</button>
+    </form>
+
+    <a href="/" class="back-link">← Back to Dashboard</a>
+</body>
+</html>

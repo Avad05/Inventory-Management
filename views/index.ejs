@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="/uploads/index.css">
+</head>
+<body>
+    <header class="header-area">
+        <h1>Inventory</h1>
+        <div class="nav-actions">
+            <a href="/addcategory" class="btn btn-secondary">Add Category</a>
+            <a href="/new" class="btn btn-primary">View All Products</a>
+        </div>
+    </header>
+
+    <main>
+        <ul class="category-grid">
+            <% specs.forEach(element => { %>
+                <li class="category-card">
+                    <a href="/categories/<%= element.id %>">
+                        <%= element.name %>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+
+        <% if (specs.length === 0) { %>
+            <div style="text-align: center; margin-top: 100px; color: #94a3b8;">
+                <p>No categories found. Start by adding one!</p>
+            </div>
+        <% } %>
+    </main>
+</body>
+</html>
